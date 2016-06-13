@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAsignaturasTable extends Migration
+class CreateNotasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,13 +12,12 @@ class CreateAsignaturasTable extends Migration
      */
     public function up()
     {
-        Schema::create('asignaturas', function (Blueprint $table) {
-            
+        Schema::create('notas', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('nombre');
-            $table->text('descripcion');
-            $table->integer('id_user')->unsigned();
-            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');
+            $table->float('nota')->unsigned();
+            $table->float('porcentaje');
+            $table->integer('id_asignatura')->unsigned();
+            $table->foreign('id_asignatura')->references('id')->on('asignaturas')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateAsignaturasTable extends Migration
      */
     public function down()
     {
-        Schema::drop('asignaturas');
+        Schema::drop('notas');
     }
 }

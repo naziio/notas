@@ -24,4 +24,12 @@ Route::get('index','HomeController@inicio');
 Route::get('asignaturas', 'AsignaturasController@index');
 Route::get('asignaturas/create', 'AsignaturasController@create');
 Route::get('asignaturas/show', 'AsignaturasController@show');
-Route::post('asignaturas/store', 'AsignaturasController@store');
+
+
+Route::post('asignaturas/store', [
+    'as' => 'asignaturas.store', 'uses' => 'AsignaturasController@store'
+]);
+
+Route::get('notas/home/{id}',[
+    'as' => 'notas.home', 'uses' => 'NotasController@home'
+]);

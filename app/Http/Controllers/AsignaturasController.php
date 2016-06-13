@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Asignatura;
 use App\Http\Requests;
+use Auth;
 
 class AsignaturasController extends Controller
 {
@@ -25,11 +26,12 @@ class AsignaturasController extends Controller
         return view('asignaturas.show', compact('asignaturas'));
     }
 
-    public function store($request)
+    public function store(Request $request)
     {
-        $asignaturas= $request->all();
-        dd($asignaturas);
-
+        $this->asignaturas =new Asignatura($request->all());
+        $this->asignaturas->id_user= Auth::user()->id;
+        //dd($asignaturas);
+$this->asignaturas->save();
         return redirect('index');
     }
 }

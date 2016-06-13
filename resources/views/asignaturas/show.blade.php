@@ -12,7 +12,7 @@
                 <div class="panel panel-heading">{{ $asignatura->nombre }}</div>
                 <div class="panel panel-body">
                     <p>{{$asignatura->descripcion}}</p>
-                    <a href="{{url('asignaturas/create')}}" class="btn btn-warning btn-block btn-home-admin">VER NOTAS</a>
+                    <a href="{{url('notas/home',$asignatura->id)}}" class="btn btn-warning btn-block btn-home-admin">VER NOTAS</a>
                 </div>
                 </div>
             </div>

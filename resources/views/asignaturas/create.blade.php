@@ -9,16 +9,14 @@
 
 
                 {!! Form::open(['route'=>'asignaturas.store', 'method'=>'POST'])!!}
-                        <div class="form-group">
-                            <label for="nombre">Nombre asignatura</label>
-                            <input type="nombre" class="form-control" id="" placeholder="nombre">
-                        </div>
-                        <div class="form-group">
-                            <label for="descripcion">Descripcion breve</label>
-                            <input type="descripcion" class="form-control" id="" placeholder="descripcion">
-                        </div>
-
-
+                <div class="form-group">
+                    {!! Form::Label('nombre', 'Nombre asignatura: ') !!}
+                    {!! Form::text('nombre',null,['class'=>'form-control']) !!}
+                </div>
+                <div class="form-group">
+                    {!! Form::Label('descripcion', 'Descripcion breve: ') !!}
+                    {!! Form::text('descripcion',null,['class'=>'form-control']) !!}
+                </div>
                         <button type="submit" class="btn btn-default">Agregar</button>
                 {!!Form::close() !!}
 
